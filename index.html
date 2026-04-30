@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Göçtü Restaurant Yalıkavak - Bodrum'da deniz kenarında lüks gün batımı, Türk ve Ege mutfağı deneyimi.">
+  <title>Göçtü Restaurant Yalıkavak | Deniz Kenarı Fine Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0A0A0A;
+      --gold: #C9A96E;
+      --beige: #F5F0E8;
+      --charcoal: #1A1A1A;
+      --muted: rgba(245, 240, 232, 0.72);
+      --line: rgba(201, 169, 110, 0.22);
+      --panel: rgba(26, 26, 26, 0.84);
+      --shadow: 0 24px 80px rgba(0, 0, 0, 0.34);
+      --heading: "Playfair Display", Georgia, serif;
+      --body: "Inter", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--black);
+      color: var(--beige);
+      font-family: var(--body);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    body::selection {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+      background-color: var(--charcoal);
+    }
+
+    .section {
+      padding: 88px 20px;
+      position: relative;
+    }
+
+    .container {
+      width: min(1160px, 100%);
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: var(--gold);
+      font-size: 0.76rem;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      margin: 0 0 14px;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      font-family: var(--heading);
+      letter-spacing: 0;
+      line-height: 1.05;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3rem, 9vw, 7.6rem);
+      max-width: 980px;
+    }
+
+    h2 {
+      font-size: clamp(2.3rem, 6vw, 5rem);
+      max-width: 760px;
+    }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .hero {
+      min-height: 100svh;
+      background: url("https://images.unsplash.com/photo-1544124499-58912cbddaad?w=1920&q=80") center/cover no-repeat;
+      background-color: #1A1A1A;
+      display: flex;
+      align-items: center;
+      padding: 34px 20px 76px;
+      position: relative;
+      isolation: isolate;
+    }
+
+    .hero::before,
+    .reservation::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: auto 0 0;
+      height: 34%;
+      background: rgba(10, 10, 10, 0.58);
+      z-index: -1;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      left: 50%;
+      padding: 24px 20px;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: min(1160px, calc(100% - 10px));
+      z-index: 5;
+    }
+
+    .brand {
+      font-family: var(--heading);
+      font-size: 1.18rem;
+      font-weight: 800;
+    }
+
+    .nav-cta {
+      align-items: center;
+      border: 1px solid var(--line);
+      color: var(--beige);
+      display: inline-flex;
+      font-size: 0.84rem;
+      font-weight: 700;
+      min-height: 42px;
+      padding: 0 16px;
+      transition: border-color 220ms ease, color 220ms ease, transform 220ms ease;
+    }
+
+    .nav-cta:hover {
+      border-color: var(--gold);
+      color: var(--gold);
+      transform: translateY(-2px);
+    }
+
+    .hero-content {
+      padding-top: 68px;
+      width: min(1160px, 100%);
+      margin: 0 auto;
+    }
+
+    .badge {
+      align-items: center;
+      background: rgba(10, 10, 10, 0.56);
+      border: 1px solid var(--line);
+      color: var(--beige);
+      display: inline-flex;
+      font-size: 0.9rem;
+      font-weight: 700;
+      margin-bottom: 24px;
+      min-height: 42px;
+      padding: 0 15px;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.35rem);
+      margin-top: 22px;
+      max-width: 640px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      align-items: center;
+      border: 1px solid var(--gold);
+      display: inline-flex;
+      font-size: 0.95rem;
+      font-weight: 800;
+      justify-content: center;
+      min-height: 54px;
+      min-width: 172px;
+      padding: 0 24px;
+      transition: background 220ms ease, color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--black);
+      box-shadow: 0 16px 46px rgba(201, 169, 110, 0.18);
+    }
+
+    .btn-outline {
+      background: rgba(10, 10, 10, 0.28);
+      color: var(--gold);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-gold:hover {
+      box-shadow: 0 22px 58px rgba(201, 169, 110, 0.28);
+    }
+
+    .btn-outline:hover {
+      background: var(--gold);
+      color: var(--black);
+    }
+
+    .scroll-indicator {
+      bottom: 28px;
+      height: 44px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 22px;
+    }
+
+    .scroll-indicator::before {
+      animation: scrollDot 1.7s ease-in-out infinite;
+      background: var(--gold);
+      content: "";
+      height: 8px;
+      left: 7px;
+      position: absolute;
+      top: 8px;
+      width: 8px;
+    }
+
+    .scroll-indicator::after {
+      border: 1px solid rgba(245, 240, 232, 0.58);
+      content: "";
+      inset: 0;
+      position: absolute;
+    }
+
+    @keyframes scrollDot {
+      0%, 100% {
+        opacity: 0.32;
+        transform: translateY(0);
+      }
+      50% {
+        opacity: 1;
+        transform: translateY(16px);
+      }
+    }
+
+    .info-strip {
+      background: #0A0A0A;
+      border-bottom: 1px solid rgba(201, 169, 110, 0.12);
+      border-top: 1px solid rgba(201, 169, 110, 0.12);
+      padding: 20px;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .info-card,
+    .testimonial,
+    .dish-card {
+      background: var(--panel);
+      border: 1px solid rgba(201, 169, 110, 0.14);
+      box-shadow: var(--shadow);
+    }
+
+    .info-card {
+      align-items: center;
+      display: flex;
+      gap: 14px;
+      min-height: 88px;
+      padding: 18px;
+    }
+
+    .info-card svg {
+      color: var(--gold);
+      flex: 0 0 25px;
+      height: 25px;
+      width: 25px;
+    }
+
+    .info-card span {
+      color: var(--muted);
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      margin-bottom: 2px;
+      text-transform: uppercase;
+    }
+
+    .info-card strong {
+      color: var(--beige);
+      display: block;
+      font-size: 0.94rem;
+      line-height: 1.32;
+    }
+
+    .experience {
+      background: var(--charcoal);
+    }
+
+    .section-intro {
+      display: grid;
+      gap: 28px;
+      grid-template-columns: 0.88fr 1fr;
+      margin-bottom: 46px;
+      align-items: end;
+    }
+
+    .section-intro p {
+      font-size: 1.03rem;
+      max-width: 600px;
+    }
+
+    .image-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: 1.18fr 0.82fr;
+      min-height: 620px;
+    }
+
+    .image-grid img {
+      border: 1px solid rgba(201, 169, 110, 0.14);
+      height: 100%;
+      width: 100%;
+    }
+
+    .image-main {
+      min-height: 620px;
+    }
+
+    .image-stack {
+      display: grid;
+      gap: 16px;
+      grid-template-rows: repeat(3, 1fr);
+    }
+
+    .scarcity {
+      align-items: center;
+      background: rgba(10, 10, 10, 0.88);
+      border: 1px solid rgba(201, 169, 110, 0.32);
+      color: var(--beige);
+      display: inline-flex;
+      font-size: 0.92rem;
+      font-weight: 800;
+      margin-top: 22px;
+      min-height: 48px;
+      padding: 0 18px;
+    }
+
+    .menu {
+      background: #0A0A0A;
+    }
+
+    .menu-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 42px;
+    }
+
+    .dish-card {
+      overflow: hidden;
+      transition: border-color 220ms ease, transform 220ms ease;
+    }
+
+    .dish-card:hover {
+      border-color: rgba(201, 169, 110, 0.48);
+      transform: translateY(-6px);
+    }
+
+    .dish-card img {
+      aspect-ratio: 4 / 3;
+      height: auto;
+      width: 100%;
+    }
+
+    .dish-body {
+      padding: 22px;
+    }
+
+    .dish-body::before {
+      background: var(--gold);
+      content: "";
+      display: block;
+      height: 2px;
+      margin-bottom: 18px;
+      width: 46px;
+    }
+
+    .dish-body h3 {
+      font-size: 1.56rem;
+      margin-bottom: 9px;
+    }
+
+    .dish-body p {
+      font-size: 0.94rem;
+    }
+
+    .reviews {
+      background: var(--charcoal);
+    }
+
+    .testimonial-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 42px;
+    }
+
+    .testimonial {
+      border-left: 3px solid var(--gold);
+      padding: 28px;
+    }
+
+    .testimonial p {
+      color: rgba(245, 240, 232, 0.88);
+      font-family: var(--heading);
+      font-size: 1.3rem;
+      line-height: 1.32;
+    }
+
+    .testimonial strong {
+      color: var(--gold);
+      display: block;
+      font-size: 0.93rem;
+      margin-top: 22px;
+    }
+
+    .reservation {
+      background: url("https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=1920&q=80") center/cover no-repeat;
+      background-color: #1A1A1A;
+      isolation: isolate;
+      min-height: 560px;
+      padding: 110px 20px;
+      position: relative;
+      text-align: center;
+    }
+
+    .reservation .container {
+      align-items: center;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .reservation h2 {
+      margin: 0 auto;
+    }
+
+    .reservation p {
+      font-size: 1.14rem;
+      margin-top: 20px;
+    }
+
+    .footer {
+      background: #0A0A0A;
+      border-top: 1px solid rgba(201, 169, 110, 0.16);
+      padding: 42px 20px;
+    }
+
+    .footer-grid {
+      align-items: start;
+      display: grid;
+      gap: 26px;
+      grid-template-columns: 1.1fr 1fr 0.7fr;
+    }
+
+    .footer h2 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      margin-bottom: 14px;
+    }
+
+    .footer p,
+    .footer a {
+      color: var(--muted);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .instagram {
+      border: 1px solid var(--line);
+      color: var(--gold) !important;
+      display: inline-flex !important;
+      font-weight: 800;
+      justify-content: center;
+      min-height: 46px;
+      padding: 10px 16px;
+      transition: background 220ms ease, color 220ms ease;
+    }
+
+    .instagram:hover {
+      background: var(--gold);
+      color: var(--black) !important;
+    }
+
+    .copyright {
+      border-top: 1px solid rgba(201, 169, 110, 0.1);
+      color: rgba(245, 240, 232, 0.48);
+      font-size: 0.84rem;
+      margin-top: 34px;
+      padding-top: 24px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 980px) {
+      .info-grid,
+      .menu-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .section-intro,
+      .image-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .image-grid,
+      .image-main {
+        min-height: auto;
+      }
+
+      .image-main {
+        aspect-ratio: 4 / 3;
+      }
+
+      .image-stack {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: none;
+      }
+
+      .image-stack img {
+        aspect-ratio: 1 / 1;
+      }
+
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section {
+        padding: 70px 16px;
+      }
+
+      .hero {
+        padding-left: 16px;
+        padding-right: 16px;
+      }
+
+      .nav {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .brand {
+        font-size: 1rem;
+      }
+
+      .nav-cta {
+        font-size: 0.78rem;
+        min-height: 38px;
+        padding: 0 12px;
+      }
+
+      .button-row,
+      .reservation .button-row {
+        width: 100%;
+      }
+
+      .btn {
+        min-width: 0;
+        width: 100%;
+      }
+
+      .info-grid,
+      .menu-grid,
+      .image-stack {
+        grid-template-columns: 1fr;
+      }
+
+      .image-stack img {
+        aspect-ratio: 4 / 3;
+      }
+
+      .scarcity {
+        align-items: flex-start;
+        line-height: 1.45;
+        padding: 14px 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav" aria-label="Ana navigasyon">
+      <a class="brand" href="#top">Göçtü Restaurant</a>
+      <a class="nav-cta" href="tel:05353605588">Rezervasyon</a>
+    </nav>
+
+    <div class="hero-content reveal">
+      <div class="badge" aria-label="Misafir değerlendirme puanı">⭐ 4.1 · 800+ Değerlendirme</div>
+      <h1>Denizin Kıyısında, Lezzetin Zirvesinde</h1>
+      <p>Yalıkavak'ın en özel deniz kenarı fine dining deneyimi. Gün batımı, ustalıkla hazırlanan Türk ve Ege lezzetleriyle aynı masada buluşur.</p>
+      <div class="button-row">
+        <a class="btn btn-gold" href="tel:05353605588">Rezervasyon Yap</a>
+        <a class="btn btn-outline" href="#menu">Menüyü İncele</a>
+      </div>
+    </div>
+    <a class="scroll-indicator" href="#info" aria-label="Sayfada aşağı kaydır"></a>
+  </header>
+
+  <main>
+    <section class="info-strip" id="info" aria-label="Hızlı bilgiler">
+      <div class="container info-grid">
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 0 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="9" r="2.4" stroke="currentColor" stroke-width="1.7"/></svg>
+          <div><span>Konum</span><strong>Geriş, Çökertme Cd. No:52, Bodrum</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3.5 2.2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div><span>Saat</span><strong>01:00'e kadar açık</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 5h10a3 3 0 0 1 3 3v8a3 3 0 0 1-3 3H7a3 3 0 0 1-3-3V8a3 3 0 0 1 3-3Z" stroke="currentColor" stroke-width="1.7"/><path d="M8 10h8M8 14h5" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg>
+          <div><span>Ortalama</span><strong>₺2.000+ kişi başı</strong></div>
+        </article>
+        <article class="info-card reveal">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7.2 4.5 10 7.3 8.1 9.2c.8 1.8 2.9 4 4.7 4.7l1.9-1.9 2.8 2.8-1.2 2.1c-.4.8-1.4 1.2-2.2.9-4.1-1.3-7.5-4.7-8.8-8.8-.3-.8.1-1.8.9-2.2l1-1.3Z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg>
+          <div><span>Telefon</span><strong><a href="tel:05353605588">0535 360 55 88</a></strong></div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section experience">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div>
+            <p class="eyebrow">Yalıkavak sahilinde</p>
+            <h2>Bir Deneyim, Bir Hatıra</h2>
+          </div>
+          <p>Göçtü Restaurant Yalıkavak'ta akşam, denizin üstüne inen altın ışıkla başlar. Masanızda Ege'nin tazeliği, Anadolu'nun ateşi ve Bodrum'un seçkin ritmi zarif bir bütünlüğe dönüşür.</p>
+        </div>
+
+        <div class="image-grid reveal">
+          <img class="image-main" src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" width="800" height="620" loading="lazy" alt="Yalıkavak sahilinde gün batımında şık restoran masaları" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+          <div class="image-stack">
+            <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" width="600" height="400" loading="lazy" alt="Şık sunumlu fine dining tabak" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&q=80" width="600" height="400" loading="lazy" alt="Loş ışıklı zarif restoran iç mekanı" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <img src="https://images.unsplash.com/photo-1600891964092-4316c288032e?w=600&q=80" width="600" height="400" loading="lazy" alt="Kadehlerle hazırlanmış lüks akşam yemeği masası" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+          </div>
+        </div>
+        <div class="scarcity reveal">⚡ Yoğun dönemlerde 15 gün önceden rezervasyon önerilir</div>
+      </div>
+    </section>
+
+    <section class="section menu" id="menu">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div>
+            <p class="eyebrow">İmza seçkisi</p>
+            <h2>İmza Lezzetlerimiz</h2>
+          </div>
+          <p>Ateşin, denizin ve Ege sofralarının en rafine yorumları; sade, güçlü ve unutulmaz bir servis ritmiyle sunulur.</p>
+        </div>
+
+        <div class="menu-grid">
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=500&q=80" width="500" height="375" loading="lazy" alt="Kömür ateşinde pişmiş Urfa kebap yakın plan" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <div class="dish-body">
+              <h3>Urfa Kebap</h3>
+              <p>Kömür ateşinde, ustaca pişirilmiş.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1625944230945-1b7dd3b949ab?w=500&q=80" width="500" height="375" loading="lazy" alt="Renkli Türk meze tabakları ve Ege lezzetleri" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <div class="dish-body">
+              <h3>Günün Mezeleri</h3>
+              <p>Ege'nin taze lezzetleri, her gün özenle.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d?w=500&q=80" width="500" height="375" loading="lazy" alt="Antep fıstıklı çıtır katmer tatlısı" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <div class="dish-body">
+              <h3>Katmer</h3>
+              <p>Antep fıstıklı, çıtır çıtır tatlı finali.</p>
+            </div>
+          </article>
+          <article class="dish-card reveal">
+            <img src="https://images.unsplash.com/photo-1615141982883-c7ad0e69fd62?w=500&q=80" width="500" height="375" loading="lazy" alt="Taze deniz ürünleri tabağı" onerror="this.style.background='linear-gradient(135deg, #1A1A1A, #2A2A2A)'">
+            <div class="dish-body">
+              <h3>Deniz Ürünleri</h3>
+              <p>Bugünün avı, denizden sofranıza.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews">
+      <div class="container">
+        <div class="section-intro reveal">
+          <div>
+            <p class="eyebrow">Sosyal kanıt</p>
+            <h2>Misafirlerimiz Anlatıyor</h2>
+          </div>
+          <p>Özel akşamlar, kutlamalar ve Bodrum'a yakışan uzun sofralar için seçkin bir buluşma noktası.</p>
+        </div>
+
+        <div class="testimonial-grid">
+          <article class="testimonial reveal">
+            <p>"Gün batımında deniz kenarında yemek yemek büyüleyiciydi. Servis kusursuz."</p>
+            <strong>Ayşe K. ⭐⭐⭐⭐⭐</strong>
+          </article>
+          <article class="testimonial reveal">
+            <p>"Bodrum'un en iyi kebap deneyimi. Atmosfer ve lezzet mükemmel."</p>
+            <strong>Mehmet B. ⭐⭐⭐⭐⭐</strong>
+          </article>
+          <article class="testimonial reveal">
+            <p>"Özel gecemiz için mükemmel bir tercihti. Kesinlikle tekrar geleceğiz."</p>
+            <strong>Deniz &amp; Cem ⭐⭐⭐⭐⭐</strong>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="reservation" id="reservation">
+      <div class="container reveal">
+        <p class="eyebrow">Rezervasyon</p>
+        <h2>Bu Akşam Masanız Hazır</h2>
+        <p>Gün batımının en güzel anını Göçtü'de yaşayın.</p>
+        <div class="button-row">
+          <a class="btn btn-gold" href="tel:05353605588">Hemen Ara: 0535 360 55 88</a>
+          <a class="btn btn-outline" href="https://www.google.com/maps/search/?api=1&query=Geri%C5%9F%2C%20%C3%87%C3%B6kertme%20Cd.%20No%3A52%2C%20Bodrum" target="_blank" rel="noopener">Yol Tarifi Al</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <h2>Göçtü Restaurant</h2>
+          <p>Yalıkavak'ın deniz kenarında seçkin gün batımı sofrası.</p>
+        </div>
+        <div>
+          <p>Geriş, Çökertme Cd. No:52, 48400 Bodrum/Muğla</p>
+          <p>Her gün 12:00 - 01:00</p>
+          <a href="tel:05353605588">0535 360 55 88</a>
+        </div>
+        <div>
+          <a class="instagram" href="https://www.instagram.com/goctuyalikavak" target="_blank" rel="noopener">@goctuyalikavak</a>
+        </div>
+      </div>
+      <div class="copyright">© 2025 Göçtü Restaurant Yalıkavak</div>
+    </div>
+  </footer>
+
+  <script>
+    const animatedElements = document.querySelectorAll(".reveal");
+
+    const revealObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.14,
+      rootMargin: "0px 0px -70px 0px"
+    });
+
+    animatedElements.forEach((element) => revealObserver.observe(element));
+  </script>
+</body>
+</html>
