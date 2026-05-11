@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Lemon Tree Bitez - Bodrum Bitez sahilinde kahvaltı, pide, meze, kokteyl ve canlı müzik deneyimi.">
+  <title>The Lemon Tree | Bitez Sahil Restaurant</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --night: #07100f;
+      --deep: #0f1f1e;
+      --sea: #1e6f74;
+      --lemon: #e8c94e;
+      --leaf: #7b9f4d;
+      --cream: #fff8e8;
+      --sand: #f4e3c5;
+      --ink: #17201d;
+      --muted: rgba(255, 248, 232, 0.76);
+      --line: rgba(232, 201, 78, 0.25);
+      --panel: rgba(7, 16, 15, 0.78);
+      --heading: "Playfair Display", Georgia, serif;
+      --body: "Inter", Arial, sans-serif;
+      --shadow: 0 28px 90px rgba(0, 0, 0, 0.34);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--night);
+      color: var(--cream);
+      font-family: var(--body);
+      line-height: 1.6;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img {
+      background-color: var(--deep);
+      display: block;
+      max-width: 100%;
+      object-fit: cover;
+    }
+
+    .container {
+      margin: 0 auto;
+      width: min(1160px, calc(100% - 32px));
+    }
+
+    .section {
+      padding: 94px 0;
+      position: relative;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--heading);
+      letter-spacing: 0;
+      line-height: 1.03;
+      margin: 0;
+    }
+
+    h1 {
+      font-size: clamp(3.4rem, 9vw, 8rem);
+      max-width: 1080px;
+    }
+
+    h2 {
+      font-size: clamp(2.55rem, 6vw, 5.25rem);
+      max-width: 820px;
+    }
+
+    h3 { font-size: 1.65rem; }
+
+    p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .eyebrow {
+      color: var(--lemon);
+      font-size: 0.74rem;
+      font-weight: 900;
+      letter-spacing: 0.18em;
+      margin-bottom: 14px;
+      text-transform: uppercase;
+    }
+
+    .hero {
+      align-items: center;
+      background: url("assets/images/venue-hero.webp") center/cover no-repeat;
+      background-color: var(--deep);
+      display: flex;
+      isolation: isolate;
+      min-height: 100svh;
+      padding: 96px 0 76px;
+      position: relative;
+    }
+
+    .hero::before,
+    .reservation::before {
+      background: rgba(0, 0, 0, 0.6);
+      content: "";
+      inset: 0;
+      position: absolute;
+      z-index: -1;
+    }
+
+    .hero::after {
+      background: linear-gradient(0deg, rgba(7, 16, 15, 0.92), rgba(7, 16, 15, 0.16));
+      bottom: 0;
+      content: "";
+      height: 44%;
+      left: 0;
+      position: absolute;
+      right: 0;
+      z-index: -1;
+    }
+
+    .nav {
+      align-items: center;
+      display: flex;
+      justify-content: space-between;
+      left: 50%;
+      padding: 24px 0;
+      position: absolute;
+      top: 0;
+      transform: translateX(-50%);
+      width: min(1160px, calc(100% - 32px));
+      z-index: 5;
+    }
+
+    .brand {
+      font-family: var(--heading);
+      font-size: 1.42rem;
+      font-weight: 800;
+    }
+
+    .nav-links {
+      align-items: center;
+      display: flex;
+      gap: 18px;
+    }
+
+    .nav-links a {
+      color: rgba(255, 248, 232, 0.82);
+      font-size: 0.86rem;
+      font-weight: 800;
+      transition: color 220ms ease;
+    }
+
+    .nav-links a:hover { color: var(--lemon); }
+
+    .nav-cta {
+      border: 1px solid var(--line);
+      color: var(--lemon) !important;
+      min-height: 42px;
+      padding: 10px 15px;
+    }
+
+    .hero-content {
+      max-width: 1080px;
+      padding-top: 58px;
+      text-shadow: 0 18px 46px rgba(0, 0, 0, 0.68);
+    }
+
+    .rating {
+      align-items: center;
+      background: rgba(7, 16, 15, 0.68);
+      border: 1px solid var(--line);
+      color: var(--cream);
+      display: inline-flex;
+      font-size: 0.92rem;
+      font-weight: 900;
+      min-height: 42px;
+      padding: 0 15px;
+      backdrop-filter: blur(14px);
+    }
+
+    .hero p {
+      font-size: clamp(1.05rem, 2vw, 1.36rem);
+      margin-top: 22px;
+      max-width: 720px;
+    }
+
+    .button-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .btn {
+      align-items: center;
+      border: 1px solid var(--lemon);
+      display: inline-flex;
+      font-size: 0.94rem;
+      font-weight: 900;
+      justify-content: center;
+      min-height: 56px;
+      min-width: 178px;
+      padding: 0 24px;
+      transition: background 220ms ease, color 220ms ease, transform 220ms ease, box-shadow 220ms ease;
+    }
+
+    .btn-primary {
+      background: var(--lemon);
+      color: #15201a;
+      box-shadow: 0 18px 54px rgba(232, 201, 78, 0.24);
+    }
+
+    .btn-secondary {
+      background: rgba(7, 16, 15, 0.28);
+      color: var(--cream);
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 54px rgba(0, 0, 0, 0.3);
+    }
+
+    .scroll {
+      animation: bounce 1.7s infinite;
+      border: 1px solid var(--line);
+      bottom: 28px;
+      height: 46px;
+      left: 50%;
+      position: absolute;
+      transform: translateX(-50%);
+      width: 28px;
+    }
+
+    .scroll::after {
+      background: var(--lemon);
+      content: "";
+      height: 8px;
+      left: 50%;
+      position: absolute;
+      top: 10px;
+      transform: translateX(-50%);
+      width: 2px;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translate(-50%, 0); }
+      50% { transform: translate(-50%, 8px); }
+    }
+
+    .info-strip {
+      background: #091513;
+      border-bottom: 1px solid rgba(232, 201, 78, 0.14);
+      border-top: 1px solid rgba(232, 201, 78, 0.14);
+      padding: 22px 0;
+    }
+
+    .info-grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .info-card {
+      align-items: center;
+      background: rgba(255, 255, 255, 0.045);
+      border: 1px solid rgba(232, 201, 78, 0.16);
+      display: flex;
+      gap: 12px;
+      min-height: 82px;
+      padding: 18px;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .info-card:hover {
+      border-color: rgba(232, 201, 78, 0.44);
+      transform: translateY(-3px);
+    }
+
+    .info-card svg {
+      color: var(--lemon);
+      flex: 0 0 auto;
+      height: 22px;
+      width: 22px;
+    }
+
+    .info-card strong {
+      display: block;
+      font-size: 0.88rem;
+      line-height: 1.35;
+    }
+
+    .story {
+      background:
+        radial-gradient(circle at 14% 12%, rgba(123, 159, 77, 0.18), transparent 28%),
+        linear-gradient(180deg, #07100f 0%, #10201e 100%);
+    }
+
+    .story-grid {
+      align-items: center;
+      display: grid;
+      gap: 54px;
+      grid-template-columns: 0.9fr 1.1fr;
+    }
+
+    .lead {
+      font-size: 1.04rem;
+      margin-top: 22px;
+      max-width: 650px;
+    }
+
+    .badge {
+      align-items: center;
+      background: rgba(232, 201, 78, 0.12);
+      border: 1px solid rgba(232, 201, 78, 0.28);
+      color: var(--cream);
+      display: inline-flex;
+      font-size: 0.88rem;
+      font-weight: 800;
+      margin-top: 26px;
+      min-height: 44px;
+      padding: 0 14px;
+    }
+
+    .photo-grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: 1.2fr 0.8fr;
+    }
+
+    .photo-grid img {
+      border: 1px solid rgba(232, 201, 78, 0.18);
+      box-shadow: var(--shadow);
+      height: 260px;
+      width: 100%;
+    }
+
+    .photo-grid img:first-child {
+      grid-row: span 2;
+      height: 534px;
+    }
+
+    .menu {
+      background: #08110f;
+    }
+
+    .section-head {
+      align-items: end;
+      display: flex;
+      gap: 24px;
+      justify-content: space-between;
+      margin-bottom: 36px;
+    }
+
+    .section-head p { max-width: 480px; }
+
+    .menu-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .dish {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(232, 201, 78, 0.16);
+      overflow: hidden;
+      transition: transform 220ms ease, border-color 220ms ease;
+    }
+
+    .dish:hover {
+      border-color: rgba(232, 201, 78, 0.44);
+      transform: translateY(-6px);
+    }
+
+    .dish img {
+      height: 250px;
+      width: 100%;
+    }
+
+    .dish-content {
+      padding: 22px;
+    }
+
+    .dish-content::before {
+      background: var(--lemon);
+      content: "";
+      display: block;
+      height: 2px;
+      margin-bottom: 16px;
+      width: 46px;
+    }
+
+    .dish p {
+      font-size: 0.94rem;
+      margin-top: 10px;
+    }
+
+    .vibe {
+      background: var(--sand);
+      color: var(--ink);
+    }
+
+    .vibe p { color: rgba(23, 32, 29, 0.72); }
+    .vibe .eyebrow { color: #836b18; }
+
+    .vibe-grid {
+      display: grid;
+      gap: 18px;
+      grid-template-columns: 1fr 1fr 1fr;
+      margin-top: 36px;
+    }
+
+    .vibe-card {
+      background: rgba(255, 255, 255, 0.54);
+      border: 1px solid rgba(23, 32, 29, 0.12);
+      padding: 26px;
+      min-height: 210px;
+    }
+
+    .vibe-card h3 { color: var(--ink); }
+
+    .reviews {
+      background: linear-gradient(180deg, #10201e 0%, #07100f 100%);
+    }
+
+    .review-grid {
+      display: grid;
+      gap: 16px;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 38px;
+    }
+
+    .review {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(232, 201, 78, 0.14);
+      border-left: 3px solid var(--lemon);
+      min-height: 230px;
+      padding: 26px;
+    }
+
+    .review p {
+      color: rgba(255, 248, 232, 0.9);
+      font-size: 1rem;
+    }
+
+    .review strong {
+      color: var(--lemon);
+      display: block;
+      margin-top: 20px;
+    }
+
+    .reservation {
+      background: url("assets/images/beach-table.jpg") center/cover no-repeat;
+      background-color: var(--deep);
+      isolation: isolate;
+      padding: 118px 0;
+      position: relative;
+      text-align: center;
+    }
+
+    .reservation .container { max-width: 850px; }
+    .reservation h2 { margin: 0 auto; }
+
+    .reservation p {
+      font-size: 1.1rem;
+      margin: 18px auto 0;
+      max-width: 590px;
+    }
+
+    footer {
+      background: #050c0b;
+      border-top: 1px solid rgba(232, 201, 78, 0.16);
+      padding: 52px 0;
+    }
+
+    .footer-grid {
+      display: grid;
+      gap: 22px;
+      grid-template-columns: 1.25fr 1.1fr 1fr 1fr;
+    }
+
+    .footer-title {
+      font-family: var(--heading);
+      font-size: 1.85rem;
+      font-weight: 800;
+      line-height: 1;
+      margin-bottom: 12px;
+    }
+
+    footer small {
+      color: rgba(255, 248, 232, 0.52);
+      display: block;
+      margin-top: 34px;
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(26px);
+      transition: opacity 700ms ease, transform 700ms ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (max-width: 920px) {
+      .info-grid,
+      .menu-grid,
+      .review-grid,
+      .vibe-grid,
+      .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .story-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-head {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .section { padding: 72px 0; }
+
+      .hero {
+        align-items: flex-end;
+        min-height: 92svh;
+        padding: 112px 0 96px;
+      }
+
+      .hero::before { background: rgba(0, 0, 0, 0.66); }
+      .hero::after { height: 70%; }
+
+      h1 { font-size: clamp(2.9rem, 15vw, 4.15rem); }
+      .hero p { color: rgba(255, 248, 232, 0.9); }
+
+      .nav {
+        background: rgba(7, 16, 15, 0.72);
+        border-bottom: 1px solid rgba(232, 201, 78, 0.14);
+        left: 0;
+        padding: 18px 16px;
+        transform: none;
+        width: 100%;
+      }
+
+      .brand { font-size: 1.12rem; }
+      .nav-links a:not(.nav-cta) { display: none; }
+      .nav-cta { min-height: 38px; padding: 8px 12px; }
+
+      .button-row .btn { width: 100%; }
+
+      .info-grid,
+      .menu-grid,
+      .review-grid,
+      .vibe-grid,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .photo-grid img,
+      .photo-grid img:first-child {
+        height: 300px;
+      }
+
+      .dish img { height: 230px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <nav class="nav">
+      <a class="brand" href="#top" data-brand>The Lemon Tree</a>
+      <div class="nav-links">
+        <a href="#deneyim">Deneyim</a>
+        <a href="#menu">Lezzetler</a>
+        <a href="#yorumlar">Yorumlar</a>
+        <a class="nav-cta" href="tel:+905333449093">Rezervasyon</a>
+      </div>
+    </nav>
+
+    <div class="container hero-content reveal">
+      <div class="rating">4,1 · 1.271 yorum · Bitez sahilinde</div>
+      <h1>Bitez’de limon kokulu sahil sofrası.</h1>
+      <p>Denizin kıyısında kahvaltıdan akşam canlı müziğine, pideden mezeye, kokteylden rakı keyfine uzanan rahat ama özenli Bodrum deneyimi.</p>
+      <div class="button-row">
+        <a class="btn btn-primary" href="tel:+905333449093">Rezervasyon Yap</a>
+        <a class="btn btn-secondary" href="#menu">Menüyü Keşfet</a>
+      </div>
+    </div>
+    <a class="scroll" href="#bilgi" aria-label="Aşağı kaydır"></a>
+  </header>
+
+  <section class="info-strip" id="bilgi">
+    <div class="container info-grid">
+      <div class="info-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 21s7-5.2 7-12a7 7 0 1 0-14 0c0 6.8 7 12 7 12Z" stroke="currentColor" stroke-width="1.8"/><path d="M12 12.2a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <strong>Bitez, Çökertme Cd., Bodrum</strong>
+      </div>
+      <div class="info-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 7v6l4 2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/><path d="M12 22a10 10 0 1 0 0-20 10 10 0 0 0 0 20Z" stroke="currentColor" stroke-width="1.8"/></svg>
+        <strong>02:00’a kadar açık</strong>
+      </div>
+      <div class="info-card reveal">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 7h12M6 12h12M6 17h7" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg>
+        <strong>₺200–800 kişi başı</strong>
+      </div>
+      <a class="info-card reveal" href="tel:+905333449093">
+        <svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M7 4h3l1.5 4-2 1.3c.9 1.9 2.3 3.3 4.2 4.2l1.3-2 4 1.5v3c0 1.1-.9 2-2 2A13 13 0 0 1 4 6c0-1.1.9-2 2-2h1Z" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+        <strong>0533 344 90 93</strong>
+      </a>
+    </div>
+  </section>
+
+  <section class="section story" id="deneyim">
+    <div class="container story-grid">
+      <div class="reveal">
+        <div class="eyebrow">Bitez sahil ritmi</div>
+        <h2>Gündüz kahvaltı, akşam deniz kıyısında müzik.</h2>
+        <p class="lead">The Lemon Tree’nin tarzı rahat, sahil ruhlu ve sosyal: sabah serpme kahvaltı, gün içinde pide ve soğuk içecekler, akşam ise meze, bira, kokteyl ve canlı müzikle uzayan Bodrum masaları.</p>
+        <div class="badge">Öne çıkan atmosfer: denize sıfır masalar ve canlı müzik geceleri</div>
+      </div>
+      <div class="photo-grid reveal">
+        <img src="assets/images/venue-1.webp" width="620" height="760" loading="lazy" alt="The Lemon Tree Bitez sahil masaları" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+        <img src="assets/images/venue-2.webp" width="420" height="320" loading="lazy" alt="The Lemon Tree mekan atmosferi" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+        <img src="assets/images/venue-3.webp" width="420" height="320" loading="lazy" alt="The Lemon Tree Bitez deniz kenarı ortamı" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+      </div>
+    </div>
+  </section>
+
+  <section class="section menu" id="menu">
+    <div class="container">
+      <div class="section-head reveal">
+        <div>
+          <div class="eyebrow">Öne çıkanlar</div>
+          <h2>Sahil gününe yakışan lezzetler.</h2>
+        </div>
+        <p>Menüde kahvaltı, pide, bira, kokteyl, çay ve Akdeniz esintili balık-meze seçenekleri öne çıkıyor.</p>
+      </div>
+
+      <div class="menu-grid">
+        <article class="dish reveal">
+          <img src="assets/images/breakfast.jpg" width="520" height="420" loading="lazy" alt="Bodrum sahil kahvaltısı" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+          <div class="dish-content">
+            <h3>Serpme Kahvaltı</h3>
+            <p>Bitez sahilinde yavaş başlayan sabahlar için zengin kahvaltı masası.</p>
+          </div>
+        </article>
+        <article class="dish reveal">
+          <img src="assets/images/pide.jpg" width="520" height="420" loading="lazy" alt="Taş fırın pide sunumu" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+          <div class="dish-content">
+            <h3>Pide</h3>
+            <p>Gün içinde pratik, sıcak ve doyurucu sahil lezzeti.</p>
+          </div>
+        </article>
+        <article class="dish reveal">
+          <img src="assets/images/dinner.jpg" width="520" height="420" loading="lazy" alt="Akşam meze ve içki masası" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+          <div class="dish-content">
+            <h3>Meze & Rakı Keyfi</h3>
+            <p>Canlı müzik ve dalga sesiyle uzayan akşam masaları.</p>
+          </div>
+        </article>
+        <article class="dish reveal">
+          <img src="assets/images/cocktail.jpg" width="520" height="420" loading="lazy" alt="Bitez sahilinde soğuk bira sunumu" onerror="this.style.background='linear-gradient(135deg, #10201e, #1e6f74)'">
+          <div class="dish-content">
+            <h3>Bira & Kokteyl</h3>
+            <p>Gün batımından geceye soğuk bira, ferah içecekler ve sahil ruhu.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section vibe">
+    <div class="container">
+      <div class="eyebrow reveal">Mekanın tarzı</div>
+      <h2 class="reveal">Şık değilmiş gibi rahat, rahat değilmiş gibi özenli.</h2>
+      <div class="vibe-grid">
+        <article class="vibe-card reveal">
+          <h3>Denize Yakın Masa</h3>
+          <p>Dalgaların sesi, Bitez akşamının yumuşak ışığı ve sahile yakın masalar.</p>
+        </article>
+        <article class="vibe-card reveal">
+          <h3>Canlı Müzik</h3>
+          <p>Yorumlarda en çok anılan deneyimlerden biri: gece canlı müzik eşliğinde içki ve meze keyfi.</p>
+        </article>
+        <article class="vibe-card reveal">
+          <h3>Gün Boyu Kullanım</h3>
+          <p>Kahvaltı, çay, pide, bira, kokteyl ve akşam yemeği için tek adreste farklı modlar.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section reviews" id="yorumlar">
+    <div class="container">
+      <div class="eyebrow reveal">Misafirler anlatıyor</div>
+      <h2 class="reveal">Bitez’de deniz, müzik ve masa keyfi.</h2>
+      <div class="review-grid">
+        <article class="review reveal">
+          <p>“Canlı müzik eşliğinde rakı içebileceğiniz bir mekan. Mezeler taze ve gerçekten çok lezzetli.”</p>
+          <strong>Timuçin · Google yorumu</strong>
+        </article>
+        <article class="review reveal">
+          <p>“Canlı müziği çok güzel. Denize sıfır olması bence tüm olumsuzlukları yok eder.”</p>
+          <strong>Ebru Ö. · Google yorumu</strong>
+        </article>
+        <article class="review reveal">
+          <p>“Tables on the beach.”</p>
+          <strong>Misafir notu · Bitez sahili</strong>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="reservation" id="iletisim">
+    <div class="container reveal">
+      <div class="eyebrow">Sahil masanızı ayırın</div>
+      <h2>Bu akşam Bitez’de yeriniz hazır.</h2>
+      <p>Kahvaltıdan canlı müzikli akşam masasına kadar The Lemon Tree deneyimi için hemen arayın ya da yol tarifini açın.</p>
+      <div class="button-row" style="justify-content:center;">
+        <a class="btn btn-primary" href="tel:+905333449093">Hemen Ara: 0533 344 90 93</a>
+        <a class="btn btn-secondary" href="https://www.google.com/maps/search/?api=1&query=The%20Lemon%20Tree%20Bitez%20%C3%87%C3%B6kertme%20Cd.%20Bodrum" target="_blank" rel="noopener">Yol Tarifi Al</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="footer-title" data-brand>The Lemon Tree</div>
+          <p>Bitez sahilinde kahvaltı, pide, meze, kokteyl ve canlı müzik.</p>
+        </div>
+        <div>
+          <strong>Adres</strong>
+          <p>Bitez, Çökertme Cd., 48470 Bodrum/Muğla</p>
+        </div>
+        <div>
+          <strong>Saatler</strong>
+          <p>Her gün 02:00’a kadar açık</p>
+        </div>
+        <div>
+          <strong>Telefon</strong>
+          <p><a href="tel:+905333449093">0533 344 90 93</a></p>
+        </div>
+      </div>
+      <small>© 2026 The Lemon Tree Bitez</small>
+    </div>
+  </footer>
+
+  <script>
+    const siteConfig = {
+      businessName: "The Lemon Tree"
+    };
+
+    document.querySelectorAll("[data-brand]").forEach((el) => {
+      el.textContent = siteConfig.businessName;
+    });
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.14 });
+
+    document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+  </script>
+</body>
+</html>
